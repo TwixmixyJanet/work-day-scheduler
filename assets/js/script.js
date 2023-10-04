@@ -40,10 +40,13 @@ $(function() {
     // using the dayjs setting a variable to explicitly pull the hour
     var currentTime = dayjs().hour();
     console.log("Current Hour: " + currentTime); 
-    
+
+    // Setting up a function related to the class .time-block to iterate over .each hour.
     $(".time-block").each(function() {
+      // the id of each time block is called. Using .split method to turn it into an array. Using the id attribute to call all blocks prefaced with "hour-". parseInt making sure it's an integer. (this) referencing the time block we are in.
       var timeBlock = parseInt($(this).attr("id").split("hour-")[1]);
 
+      // using if statements to compare timeBlock to currentTime. Referencing this again to add and remove classes
       if (timeBlock < currentTime) {
         $(this).removeClass("future");
         $(this).removeClass("present");
@@ -66,12 +69,8 @@ $(function() {
     });
   }
 
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
     // ~~~ RETRIEVE FROM LOCAL STORAGE ~~~ //
-
+    // individual localStorage getItem calls all placing data in the .description textarea, using the id #hour- to determine which time block they go into.
     $("#hour-6 .description").val(localStorage.getItem("hour-6"));
     $("#hour-7 .description").val(localStorage.getItem("hour-7"));
     $("#hour-8 .description").val(localStorage.getItem("hour-8"));
@@ -85,6 +84,7 @@ $(function() {
     $("#hour-16 .description").val(localStorage.getItem("hour-16"));
     $("#hour-17 .description").val(localStorage.getItem("hour-17"));
     $("#hour-18 .description").val(localStorage.getItem("hour-18"));
+    // Is there a way we could rewrite these to be a .each loop?
 
 
 
