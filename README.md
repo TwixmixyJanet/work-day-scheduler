@@ -58,8 +58,8 @@ How to use this app:
 The biggest issue for me was trying to figure out what the jQuery syntax needed to be. It just isn't as straight forward to me and there's a lot of documenation to review to find out. Even just writing the functions I would first attempt to write it in vanilla JS, but then realize I needed to change it to jQuery. Oftentimes I found myself doing this. The key for me is being explicit with the websites I used to look for answers or including the specific keywords needed when searching for answers, especially when debugging.<br />
 ![lesson 1](assets/img/lesson1.png)
 
-#### 2. dayjs versus momentjs
-Thankfully we went over this during the class time lessons. When researching I saw reference of articles using momentjs instead of dayjs. Thankfully the instructors got us sorted. <br />
+#### 2. Traversing the DOM & Iterating localStorage
+I worked with my tutor on this. I wanted to be able to write less lines of code to pull the localStorage information. We created a for each function based off the .description textarea. It requires defining a variable based off of (this) to traverse up to the parent and select the ID of the hour. Then again based of (this) pulling out the value that was stored in the localStorage and passing it on to the descriptionID variable created. Allowing this portion of code to be cut down to four lines. <br />
 ![lesson 2](assets/img/lesson2.png)
 
 #### 3. (this)

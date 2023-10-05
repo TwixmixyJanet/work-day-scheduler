@@ -10,7 +10,7 @@ $(function() {
   var todaysDate = dayjs().format('dddd, MMM D YYYY h:mm:ssA');
   // I'm struggling to adjust to jquery. I didn't see a difference between using .text or .html, so I went with .html
   $("#currentDay").html(todaysDate);
-  console.log(todaysDate);
+  // console.log(todaysDate);
 }, 1000)
 
   // ~~~ SAVE to LOCAL STORAGE ~~~ //
@@ -39,7 +39,7 @@ $(function() {
   function timeTracking() {
     // using the dayjs setting a variable to explicitly pull the hour
     var currentTime = dayjs().hour();
-    console.log("Current Hour: " + currentTime); 
+    // console.log("Current Hour: " + currentTime); 
 
     // Setting up a function related to the class .time-block to iterate over .each hour.
     $(".time-block").each(function() {
@@ -65,27 +65,16 @@ $(function() {
         $(this).addClass("future");
       }
 
-      console.log(timeBlock);
+      // console.log(timeBlock);
     });
   }
 
     // ~~~ RETRIEVE FROM LOCAL STORAGE ~~~ //
-    // individual localStorage getItem calls all placing data in the .description textarea, using the id #hour- to determine which time block they go into.
-    $("#hour-6 .description").val(localStorage.getItem("hour-6"));
-    $("#hour-7 .description").val(localStorage.getItem("hour-7"));
-    $("#hour-8 .description").val(localStorage.getItem("hour-8"));
-    $("#hour-9 .description").val(localStorage.getItem("hour-9"));
-    $("#hour-10 .description").val(localStorage.getItem("hour-10"));
-    $("#hour-11 .description").val(localStorage.getItem("hour-11"));
-    $("#hour-12 .description").val(localStorage.getItem("hour-12"));
-    $("#hour-13 .description").val(localStorage.getItem("hour-13"));
-    $("#hour-14 .description").val(localStorage.getItem("hour-14"));
-    $("#hour-15 .description").val(localStorage.getItem("hour-15"));
-    $("#hour-16 .description").val(localStorage.getItem("hour-16"));
-    $("#hour-17 .description").val(localStorage.getItem("hour-17"));
-    $("#hour-18 .description").val(localStorage.getItem("hour-18"));
-    // Is there a way we could rewrite these to be a .each loop?
-
+    // Looping to get the individual localStorage getItem calls all placing data in the .description textarea, using the id attribute to determine which time block they go into. Traversing up the parent of (this).
+    $(".description").each(function() {
+      var descriptionID = $(this).parent().attr("id");
+      $(this).val(localStorage.getItem(descriptionID));
+    });
 
 
 
